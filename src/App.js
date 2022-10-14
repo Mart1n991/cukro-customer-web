@@ -1,5 +1,13 @@
-function App() {
-  return <div className="App">CUKRO Customer Website</div>;
-}
+import { ThemeProvider, Typography } from "@mui/material";
+import { theme } from "./theme";
+import Layout from "./components/layout/Layout";
+
+const App = () => (
+  <ThemeProvider theme={theme}>
+    <Layout>
+      <Typography textAlign="center">CUKRO</Typography>
+    </Layout>
+  </ThemeProvider>
+);
 
 export default App;
