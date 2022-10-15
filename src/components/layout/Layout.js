@@ -4,6 +4,7 @@ import { useTheme } from "@mui/material/styles";
 import { navbarWidth } from "../../constans/navbarWidth";
 import Header from "../header/Header";
 import Navbar from "../navbar/Navbar";
+import Footer from "../footer/Footer";
 
 const Layout = ({ children }) => {
   const theme = useTheme();
@@ -48,6 +49,7 @@ const Layout = ({ children }) => {
       <Box component="main" sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${navbarWidth}px)` } }}>
         <Toolbar />
         {children}
+        <Footer />
       </Box>
     </Box>
   );
