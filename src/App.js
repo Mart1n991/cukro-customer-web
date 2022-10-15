@@ -1,12 +1,11 @@
-import { ThemeProvider, Typography } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router/router";
 import { theme } from "./theme";
-import Layout from "./components/layout/Layout";
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <Layout>
-      <Typography textAlign="center">CUKRO</Typography>
-    </Layout>
+    <RouterProvider router={router} />
   </ThemeProvider>
 );
 

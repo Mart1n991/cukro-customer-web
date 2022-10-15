@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
           }}
           sx={{
             display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": { boxSizing: "border-box", width: navbarWidth, backgroundColor: "red" },
+            "& .MuiDrawer-paper": { boxSizing: "border-box", width: navbarWidth, bgcolor: theme.palette.primary.light },
           }}
         >
           <Navbar theme={theme} />
