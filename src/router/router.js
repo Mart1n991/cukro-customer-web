@@ -31,7 +31,10 @@ export const router = createBrowserRouter([
   {
     path: "/speciality",
     element: <Specialties />,
-    loader: () => getProductList(specialitesCategoryId),
+    loader: async () => {
+      let specialties = getProductList(specialitesCategoryId);
+      return defer({ specialties });
+    },
     errorElement: <Error />,
   },
   {
