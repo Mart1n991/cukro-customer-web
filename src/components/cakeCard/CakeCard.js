@@ -9,7 +9,7 @@ const CakeCard = ({ name, price, weight }) => {
   return (
     <Card sx={{ width: 300, margin: 2 }}>
       <CardActionArea>
-        <CardMedia component="img" height="140" image={basicCakePicture} alt="green iguana" />
+        <CardMedia component="img" height="140" image={basicCakePicture} alt={name} />
         <CardContent>
           <Typography gutterBottom variant="h5">
             {name}
