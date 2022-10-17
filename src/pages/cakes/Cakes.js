@@ -1,17 +1,21 @@
+import { Suspense } from "react";
+import { Await, useLoaderData } from "react-router-dom";
 import { Box } from "@mui/material";
-import { useLoaderData } from "react-router-dom";
-import CakeCard from "../../components/cakeCard/CakeCard";
 import Layout from "../../components/layout/Layout";
+import CakeList from "../../components/cakeList/CakeList";
+import CardSkeleton from "../../components/cardSkeleton/CardSkeleton";
 
 const Cakes = () => {
-  const { data } = useLoaderData();
+  const { cakes } = useLoaderData();
 
   return (
     <Layout>
       <Box sx={{ display: "flex", flexWrap: "wrap" }}>
-        {data.map(({ _id, name, price, weight }) => (
-          <CakeCard key={_id} name={name} price={price} weight={weight} />
-        ))}
+        <Suspense fallback={<CardSkeleton />}>
+          <Await resolve={cakes}>
+            <CakeList />
+          </Await>
+        </Suspense>
       </Box>
     </Layout>
   );
