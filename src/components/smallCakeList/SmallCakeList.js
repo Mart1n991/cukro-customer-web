@@ -11,7 +11,7 @@ const SmallCakeList = () => {
   return (
     <>
       {uniqueProductsInCategory.map(({ _id, name }) => (
-        <SmallCakeCard key={_id} name={name} />
+        <SmallCakeCard key={_id} id={_id} name={name} />
       ))}
     </>
   );

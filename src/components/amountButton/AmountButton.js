@@ -19,13 +19,13 @@ const AmountButton = ({ minAmount, setItem, amount }) => {
     <Box mb={3}>
       <Typography variant="subtitle2">Množstvo</Typography>
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        <Button variant="contained" color="info" size="small" onClick={decrease} disabled={minAmount === amount}>
+        <Button variant="contained" color="info" size="small" onClick={decrease} disabled={minAmount === amount || amount === 0}>
           -
         </Button>
         <Typography variant="subtitle2" mx={1}>
           {amount}
         </Typography>
-        <Button variant="contained" color="info" size="small" onClick={increase}>
+        <Button variant="contained" color="info" size="small" onClick={increase} disabled={amount === 0}>
           +
         </Button>
       </Box>
