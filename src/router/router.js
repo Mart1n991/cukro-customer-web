@@ -8,6 +8,7 @@ import Specialties from "../pages/specialties/Specialties";
 import Order from "../pages/order/Order";
 import Home from "../pages/home/Home";
 import CakeDetailWrapper from "../components/cakeDetail/CakeDetailWrapper";
+import SmallCakeDetailWrapper from "../components/smallCakeDetail/SmallCakeDetailWrapper";
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +40,16 @@ export const router = createBrowserRouter([
     loader: async () => {
       let smallCakes = getProductList(smallCakesCategoryId);
       return defer({ smallCakes });
+    },
+    errorElement: <Error />,
+  },
+  {
+    path: "/kolace/:id",
+    element: <SmallCakeDetailWrapper />,
+    loader: async ({ params }) => {
+      let smallCake = getProduct(params.id);
+      let smallCakes = await getProductList(smallCakesCategoryId);
+      return defer({ smallCake, smallCakes });
     },
     errorElement: <Error />,
   },
