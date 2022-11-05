@@ -4,11 +4,14 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Box, Button, CardActionArea, CardActions } from "@mui/material";
 import basicCakePicture from "../../assets/Torty_1.jpg";
+import { useNavigate } from "react-router-dom";
 
-const SpecialtyCard = ({ name, weight }) => {
+const SpecialtyCard = ({ id, name, weight }) => {
+  const navigate = useNavigate();
+
   return (
     <Card sx={{ width: 300, margin: 2 }}>
-      <CardActionArea>
+      <CardActionArea onClick={() => navigate(id)}>
         <CardMedia component="img" height="140" image={basicCakePicture} alt={name} />
         <CardContent>
           <Typography gutterBottom variant="h5">
@@ -27,7 +30,7 @@ const SpecialtyCard = ({ name, weight }) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" variant="contained">
+        <Button size="small" color="primary" variant="contained" onClick={() => navigate(id)}>
           Zobraziť
         </Button>
       </CardActions>

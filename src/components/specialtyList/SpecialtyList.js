@@ -7,7 +7,7 @@ const SpecialtyList = () => {
   return (
     <>
       {data.map(({ _id, name, weight }) => (
-        <SpecialtyCard key={_id} name={name} weight={weight} />
+        <SpecialtyCard key={_id} id={_id} name={name} weight={weight} />
       ))}
     </>
   );
