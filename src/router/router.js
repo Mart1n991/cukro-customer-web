@@ -9,6 +9,7 @@ import Order from "../pages/order/Order";
 import Home from "../pages/home/Home";
 import CakeDetailWrapper from "../components/cakeDetail/CakeDetailWrapper";
 import SmallCakeDetailWrapper from "../components/smallCakeDetail/SmallCakeDetailWrapper";
+import SpecialtiesDetailWrapper from "../components/specialtiesDetail/SpecialtiesDetailWrapper";
 
 export const router = createBrowserRouter([
   {
@@ -59,6 +60,16 @@ export const router = createBrowserRouter([
     loader: async () => {
       let specialties = getProductList(specialitesCategoryId);
       return defer({ specialties });
+    },
+    errorElement: <Error />,
+  },
+  {
+    path: "/speciality/:id",
+    element: <SpecialtiesDetailWrapper />,
+    loader: async ({ params }) => {
+      let specialty = getProduct(params.id);
+      let specialties = await getProductList(specialitesCategoryId);
+      return defer({ specialty, specialties });
     },
     errorElement: <Error />,
   },
