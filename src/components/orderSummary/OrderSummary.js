@@ -1,7 +1,9 @@
+import { Button } from "@mui/material";
+import { Box } from "@mui/system";
 import { useOrder } from "../../context/CukroContext";
 import OrderSummaryRow from "./OrderSummaryRow";
 
-const OrderSummary = () => {
+const OrderSummary = ({ handleNext }) => {
   const { order, setOrder } = useOrder();
 
   const updateAmount = (id, updatedAmount) => {
@@ -24,6 +26,11 @@ const OrderSummary = () => {
       {order.map((item, index) => (
         <OrderSummaryRow key={index} item={item} updateAmount={updateAmount} removeOrderItem={removeOrderItem} />
       ))}
+      <Box sx={{ display: "flex", justifyContent: "center" }} mt={5}>
+        <Button variant="contained" mt="23px" onClick={handleNext}>
+          Ďalej
+        </Button>
+      </Box>
     </>
   );
 };

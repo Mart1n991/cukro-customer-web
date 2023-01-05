@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Box, Button, Step, StepLabel, Stepper as MaterialUIStepper, Typography } from "@mui/material";
+import { Box, Step, StepLabel, Stepper as MaterialUIStepper, Typography } from "@mui/material";
 import OrderSummary from "../orderSummary/OrderSummary";
+import InvoiceInformation from "../../pages/invoiceInformation/InvoiceInformation";
 
 const steps = ["Zoznam položiek", "Fakturačné údaje", "Objednávka"];
 
@@ -14,11 +15,9 @@ const Stepper = () => {
     switch (activeStep) {
       case 1: {
         return (
-          <>
-            <Typography>Fakturačné údaje</Typography>
-            <Button onClick={handleBack}>Späť</Button>
-            <Button onClick={handleNext}>Pokračovať</Button>
-          </>
+          <Box mt={5}>
+            <InvoiceInformation handleNext={handleNext} handleBack={handleBack} />
+          </Box>
         );
       }
       case 2: {
@@ -27,7 +26,7 @@ const Stepper = () => {
       default: {
         return (
           <Box mt={5}>
-            <OrderSummary />
+            <OrderSummary handleNext={handleNext} />
           </Box>
         );
       }
