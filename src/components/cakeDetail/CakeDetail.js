@@ -12,7 +12,7 @@ const CakeDetail = () => {
   const { _id, weight, height, width, deliveryDate, price, minimumAmount, materials, name } = data;
 
   const [item, setItem] = useState({
-    id: _id,
+    _id,
     amount: minimumAmount,
     name,
     price,
